@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/menu', function () {
+    return view('menu');
+});
+
+Route::get('/admin', function () {
+    return view('login');
+});
+
+Route::get('/menu/create','MenuController@create')->name('menu.create');
