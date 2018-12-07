@@ -23,6 +23,7 @@ Route::get('/toko', function () {
     return view('toko');
 });
 
+Route::get('/toko', 'TokoController@show')->name('show');
 
 
 Auth::routes();
@@ -39,5 +40,8 @@ Route::group(['prefix'=>'admin'], function(){
     Route::post('/password/email','AuthAdmin\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
     Route::get('/password/reset/{token}','AuthAdmin\ResetPasswordController@showResetForm')->name('admin.password.reset');
     Route::post('/password/reset','AuthAdmin\ResetPasswordController@reset');
+    Route::get('/toko','AdminController@toko')->name('admin.toko');
+    Route::get('/toko/tambahmenu','AdminController@create')->name('menu.create');
+    Route::post('/toko/tambahmenu','AdminController@store')->name('menu.store');
 });
 

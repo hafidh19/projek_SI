@@ -64,7 +64,7 @@ class LoginController extends Controller
             return redirect()->intended(route('admin.home'));
         }
             //If login unsuccesful, then redirect to the login with the form data
-        return redirect()->back()->wihtInput($request->only('name', 'remember'));
+        return redirect()->back()->withInput($request->only('name'));
         
     }
 
