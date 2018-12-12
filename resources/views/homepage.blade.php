@@ -44,18 +44,19 @@
   <section id="topbar" class="d-none d-lg-block">
     <div class="container clearfix">
       <div class="contact-info float-left">
-        <i class="fa fa-envelope-o"></i> <a href="mailto:contact@example.com">contact@example.com</a>
+        <i class="fa fa-envelope-o"></i> <a href="mailto:tebuwacana@gmail.com">tebuwacana@gmail.com</a>
         <i class="fa fa-phone"></i> +1 5589 55488 55
       </div>
       <div class="social-links float-right">
         <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
         <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+        <a href="https://www.instagram.com/tebuwacana/?hl=en" class="instagram"><i class="fa fa-instagram"></i></a>
         <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
         <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
       </div>
     </div>
   </section>
+
 
   <!--==========================
     Header
@@ -75,9 +76,37 @@
           <li><a href="#about">About Us</a></li>
           <li><a href="#services">Menu</a></li>
           <li><a href="#portfolio">Dokumentasi</a></li>
-          <li><a href="#team">Team</a></li>
-          <li><a href="#call-to-action">Toko</a></li>
+          <li><a href="#team">Founder</a></li>
+          <li><a href="#call-to-action">Pesan</a></li>
           <li><a href="#contact">Contact</a></li>
+           @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                @if (Route::has('register'))
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                @endif
+                            </li>
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('user.logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('user.logout') }}"  style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -90,10 +119,7 @@
 
     <div class="intro-content">
         <h2>Tebu <font color="50d8af">Wacana</font></h2>
-      <div>
-        <a href="#about" class="btn-get-started scrollto">Masuk</a>
-        <a href="#portfolio" class="btn-projects scrollto">Ayo Gabung</a>
-      </div>
+        <h3><font color="660000"><b>"Wacanakan Hidupmu Semanis Tebu"</b></font></h3>
     </div>
 
     <div id="intro-carousel" class="owl-carousel" >
@@ -116,13 +142,16 @@
 
           <div class="col-lg-6 content">
             <h2>Apa itu Tebu Wacana</h2>
-            <h3>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h3>
+            <h3>Tebu Wacana adalah adalah salah satu produk minuman yang berbahan dasar tebu, dengan pilihan aneka rasa yang bagus kami siap memanjakan dahaga anda, lalu apa saja manfaat dari minuman tebu ini?</h3>
 
             <ul>
-              <li><i class="ion-android-checkmark-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-              <li><i class="ion-android-checkmark-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-              <li><i class="ion-android-checkmark-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+              <li><i class="ion-android-checkmark-circle"></i>Meningkatkan kepadatan tulang anda</li>
+              <li><i class="ion-android-checkmark-circle"></i>Kandungan asam amino glikolat mampu merawat kulit anda</li>
+              <li><i class="ion-android-checkmark-circle"></i>Mengendalikan tensi sehingga dapat mengurangi resiko serangan jantung dan stroke</li>
+              <li><i class="ion-android-checkmark-circle"></i>Air tebu juga baik dalam menurunkan kolesterol lho....hehe</li>
+              <li><i class="ion-android-checkmark-circle"></i>Menjaga kesehatan ginjal serta menambah energi tubuh</li>
             </ul>
+             <h3>Wah banyak ya manfaat minuman TebuWacana, Yuk beli sekarang juga</h3>
 
           </div>
         </div>
@@ -137,7 +166,7 @@
       <div class="container">
         <div class="section-header">
           <h2>Menu-menu Pilihan</h2>
-            <p><center>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</center></p>
+            <p><center>Kami menyediakan minuman tebu dengan aneka cita rasa yang khas, cita rasa ini kami persembahkan untuk memanjakan lidah anda</center></p>
         </div>
 
         <div class="row">
@@ -186,7 +215,7 @@
       <div class="container">
         <div class="section-header">
           <h2>Enjoy Your Drink</h2>
-          <p><center>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</center></p>
+          <p><center>Air tebu mengandung beberapa asam amino yang dapat menyeimbangkan kadar hormon stres,selain itu asam amino tersebut juga dapat membantu anda mengatasi masalah sulit tidur, dengan mengkonsumsi air tebu, anda dapat tidur lebih nyenyak dan membuat pikiran anda lebih tenang, yuk tunggu apa lagi enjoykeun harimu bersama tebu wacana</center></p>
         </div>
 
       </div>
@@ -199,7 +228,7 @@
       <div class="container">
         <div class="section-header">
           <h2>Dokumentasi</h2>
-          <p><center>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</center></p>
+          <p><center>Tunggu apa lagi, yuk wacanakan harimu bersama TebuWacana</center></p>
         </div>
       </div>
 
@@ -306,7 +335,7 @@
       <div class="container">
         <div class="section-header">
           <h2>Testimoni</h2>
-            <p><center>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</center>center</p>
+            <p><center>Pelanggan kami sangat menyukai minuman sehat serta menyegarkan ini, tunggu apa lagi, yuk cobakeun sensasi meminum TebuWacana yang akan membuat anda ketagihan lagi dan lagi</center></p>
         </div>
         <div class="owl-carousel testimonials-carousel">
 
@@ -378,7 +407,7 @@
         <div class="row">
           <div class="col-lg-9 text-center text-lg-left">
             <h3 class="cta-title">Toko</h3>
-            <p class="cta-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p class="cta-text"> Kamu ingin pesan dalam jumlah banyak? atau untuk acara tertentu? kami senang memanjakan dahaga anda, mari bekerja sama dengan kami , Wacanakan Hidupmu Semanis Tebu</p>
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
             <a class="cta-btn align-middle" href="toko">Pesan Disini</a>
@@ -391,76 +420,29 @@
     <!--==========================
       Our Team Section
     ============================-->
-    <section id="team" class="wow fadeInUp">
-      <div class="container">
+    <section id="team" class="wow fadeInUp center">
+      <div class="container center">
         <div class="section-header">
           <h2>Founder</h2>
         </div>
         <div class="row">
-          <div class="col-lg-3 col-md-6">
+          <style align:center></style>
+          <div class="col-lg-6 col-md-8"><center>
             <div class="member">
-              <div class="pic"><img src="img/team-1.jpg" alt=""></div>
+              <div class="pic"><img src="img/ownoer.jpg" alt=""></div>
               <div class="details">
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
+                <h4>Fikri & Syafiq</h4>
+                <span>Chief Executive Officer Tebu Wacana</span>
                 <div class="social">
-                  <a href=""><i class="fa fa-twitter"></i></a>
-                  <a href=""><i class="fa fa-facebook"></i></a>
-                  <a href=""><i class="fa fa-google-plus"></i></a>
-                  <a href=""><i class="fa fa-linkedin"></i></a>
+                  <a href="https://www.instagram.com/trisyaputrafikri/" class="instagram"><i class="fa fa-instagram"></i>|</a>
+                  <a href="https://www.instagram.com/syafiqhaha_/" class="instagram"><i class="fa fa-instagram"></i></a>
+               
+                 
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="member">
-              <div class="pic"><img src="img/team-2.jpg" alt=""></div>
-              <div class="details">
-                <h4>Sarah Jhinson</h4>
-                <span>Product Manager</span>
-                <div class="social">
-                  <a href=""><i class="fa fa-twitter"></i></a>
-                  <a href=""><i class="fa fa-facebook"></i></a>
-                  <a href=""><i class="fa fa-google-plus"></i></a>
-                  <a href=""><i class="fa fa-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="member">
-              <div class="pic"><img src="img/team-3.jpg" alt=""></div>
-              <div class="details">
-                <h4>William Anderson</h4>
-                <span>CTO</span>
-                <div class="social">
-                  <a href=""><i class="fa fa-twitter"></i></a>
-                  <a href=""><i class="fa fa-facebook"></i></a>
-                  <a href=""><i class="fa fa-google-plus"></i></a>
-                  <a href=""><i class="fa fa-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="member">
-              <div class="pic"><img src="img/team-4.jpg" alt=""></div>
-              <div class="details">
-                <h4>Amanda Jepson</h4>
-                <span>Accountant</span>
-                <div class="social">
-                  <a href=""><i class="fa fa-twitter"></i></a>
-                  <a href=""><i class="fa fa-facebook"></i></a>
-                  <a href=""><i class="fa fa-google-plus"></i></a>
-                  <a href=""><i class="fa fa-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        </center>
 
       </div>
     </section><!-- #team -->
@@ -472,7 +454,7 @@
       <div class="container">
         <div class="section-header">
           <h2>Contact Us</h2>
-          <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</p>
+          <p><center>Glukosa Alami dalam air tebu dapat membantu meningkatkan energi pada tubuh anda. Oleh karena itu, tunggu apa lagi, yuk kontak kami sekarang juga dan rasakan sensasi manisnya tebu di TebuWacana</center></p>
         </div>
 
         <div class="row contact-info">
@@ -481,7 +463,7 @@
             <div class="contact-address">
               <i class="ion-ios-location-outline"></i>
               <h3>Address</h3>
-              <address>A108 Adam Street, NY 535022, USA</address>
+              <address><a href="https://www.google.com/maps/place/Jl.+Babakan+Tengah,+Jawa+Barat/@-6.5595713,106.7309693,17z/data=!3m1!4b1!4m5!3m4!1s0x2e69c4afd749d1e7:0xb6178e642d52b02a!8m2!3d-6.5595766!4d106.7331633">Jl.Babakan Tengah No 112 RT 02/08, Dramaga Jawa Barat Indonesia</a></address>
             </div>
           </div>
 
@@ -497,7 +479,7 @@
             <div class="contact-email">
               <i class="ion-ios-email-outline"></i>
               <h3>Email</h3>
-              <p><a href="mailto:info@example.com">info@example.com</a></p>
+              <p><a href="mailto:info@example.com">tebuwacana@gmail.com</a></p>
             </div>
           </div>
 
