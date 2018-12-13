@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Admin;
 use App\Menu;
-
+use App\Transaksi;
+use App\User;
 class AdminController extends Controller
 {
     /**
@@ -29,8 +30,9 @@ class AdminController extends Controller
     }
 
     public function toko()
-    {
-        return view('admin.toko');
+    {   
+        $menus=Menu::all();
+        return view('admin.toko',compact('menus'));
     }
 
     public function create(){
@@ -51,11 +53,92 @@ class AdminController extends Controller
             'nbarang'=>request('nbarang'),
             'hbarang'=>request('hbarang'),
             'deskripsi'=>request('deskripsi'),
-            $gambar=$request->file('gambar')->store('gambars'),
-            'gambar'=>$gambar,
+            $gambar=$request->file('gambar'),
+            $fileNama=$gambar->getClientOriginalName(),
+            $request->file('gambar')->move("storage/",$fileNama),
+            'gambar'=>$fileNama,
             'admin_id'=>request('admin_id')
         ]);
             
-        return redirect('/admin/toko')->with('success','Data Berhasil Ditambahkan');
+        return redirect('/admin/toko')->with('success','Menu Berhasil Ditambahkan');
+    }
+
+    public function edit($id)
+    {
+        
+        $admins = Admin::all();
+        $menu = Menu::find($id);
+        return view('admin.editmenu', compact('menu','admins'));
+    }
+
+    public function update($id,Request $request)
+    {   
+        $this->validate(request(),[
+            'nbarang'=>'required',
+            'hbarang'=>'required|numeric',
+            'deskripsi'=>'required',
+            'gambar'=>'required|image',
+        ]);      
+
+        $menu = Menu::find($id);
+        $admins = Admin::all();
+        $menu -> update([
+            'nbarang'=>request('nbarang'),
+            'hbarang'=>request('hbarang'),
+            'deskripsi'=>request('deskripsi'),
+            $gambar=$request->file('gambar'),
+            $fileNama=$gambar->getClientOriginalName(),
+            $request->file('gambar')->move("storage/",$fileNama),
+            'gambar'=>$fileNama,
+            'admin_id'=>request('admin_id')
+        ]);
+        return redirect('/admin/toko')->with('success','Menu Berhasil Di Edit');
+    }
+
+    public function destroy($id){
+        $menu = Menu::find($id);
+        $menu->delete();
+        return redirect('/admin/toko')->with('danger','Menu Berhasil Di Delete');
+    }
+
+    public function order(){
+        $transaksis = Transaksi::all();
+        $menus = Menu::all();
+        $users = User::all();
+        return view('/admin/ongoingorder',compact('transaksis','menus','users'));
+    }
+
+    public function done(){
+        $post = Transaksi::where('status','1')->first();
+        $post->status = 2;
+        $post->save();
+        return redirect('/admin/order')->with('success','Orderan Telah Selesai');
+    }
+
+    public function orderdone(){
+        $transaksis = Transaksi::all();
+        $menus = Menu::all();
+        $users = User::all();
+        return view('/admin/orderdone',compact('transaksis','menus','users'));
+    }
+
+
+    public function message(Request $request)
+    {
+        $this->validate(request(),[
+            'name'=>'required',
+            'email'=>'required',
+            'subject'=>'required',
+            'message'=>'required'
+        ]);
+
+        Message::create([
+            'name'=>request('name'),
+            'email'=>request('email'),
+            'subject'=>request('subject'),
+            'message'=>request('message')
+        ]);
+            
+        return redirect('/')->with('success','Pesan Terkirim');
     }
 }

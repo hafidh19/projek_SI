@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Toko</title>
+	<title>{{$menu->nbarang}}</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
+	<link rel="icon" type="image/png" href="../images/icons/favicon.png"/>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/themify/themify-icons.css">
+	<link rel="stylesheet" type="text/css" href="../fonts/themify/themify-icons.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="../fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/elegant-font/html-css/style.css">
+	<link rel="stylesheet" type="text/css" href="../fonts/elegant-font/html-css/style.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="../vendor/css-hamburgers/hamburgers.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="../vendor/animsition/css/animsition.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="../vendor/select2/select2.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
+	<link rel="stylesheet" type="text/css" href="../vendor/slick/slick.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
+	<link rel="stylesheet" type="text/css" href="../vendor/noui/nouislider.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="../css/util.css">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
 <!--===============================================================================================-->
 </head>
 <body class="animsition" >
@@ -90,8 +90,12 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
+								
                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('user.logout') }}"
+								 <a class="dropdown-item" href="">
+                                        {{ __('List Belanja') }}
+                                    </a>
+									<a class="dropdown-item" href="{{ route('user.logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -106,168 +110,64 @@
 				</div>
 			</div>
 		</div>
-
-		<!-- Header Mobile -->
-		<div class="wrap_header_mobile">
-			<!-- Logo moblie -->
-			<a href="index.html" class="logo-mobile">
-				<img src="images/icons/logo.png" alt="IMG-LOGO">
-			</a>
-
-			<!-- Button show menu -->
-			<div class="btn-show-menu">
-				<!-- Header Icon mobile -->
-				<div class="header-icons-mobile">
-					<a href="#" class="header-wrapicon1 dis-block">
-						<img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
-					</a>
-
-					<span class="linedivide2"></span>
-
-					<div class="header-wrapicon2">
-						<img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
-						<span class="header-icons-noti">0</span>
-
-						
-					</div>
-				</div>
-
-				<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
-					<span class="hamburger-box">
-						<span class="hamburger-inner"></span>
-					</span>
-				</div>
-			</div>
-		</div>
-
-		<!-- Menu Mobile -->
-		<div class="wrap-side-menu" >
-			<nav class="side-menu">
-				<ul class="main-menu">
-					<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
-						<span class="topbar-child1">
-							Free shipping for standard order over $100
-						</span>
-					</li>
-
-					<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
-						<div class="topbar-child2-mobile">
-							<span class="topbar-email">
-								fashe@example.com
-							</span>
-
-							<div class="topbar-language rs1-select2">
-								<select class="selection-1" name="time">
-									<option>USD</option>
-									<option>EUR</option>
-								</select>
-							</div>
-						</div>
-					</li>
-
-					<li class="item-topbar-mobile p-l-10">
-						<div class="topbar-social-mobile">
-							<a href="#" class="topbar-social-item fa fa-facebook"></a>
-							<a href="#" class="topbar-social-item fa fa-instagram"></a>
-							<a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
-							<a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
-							<a href="#" class="topbar-social-item fa fa-youtube-play"></a>
-						</div>
-					</li>
-
-					<li class="item-menu-mobile">
-						<a href="index.html">Home</a>
-						<ul class="sub-menu">
-							<li><a href="index.html">Homepage V1</a></li>
-							<li><a href="home-02.html">Homepage V2</a></li>
-							<li><a href="home-03.html">Homepage V3</a></li>
-						</ul>
-						<i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
-					</li>
-
-					<li class="item-menu-mobile">
-						<a href="product.html">Shop</a>
-					</li>
-
-					<li class="item-menu-mobile">
-						<a href="product.html">Sale</a>
-					</li>
-
-					<li class="item-menu-mobile">
-						<a href="cart.html">Features</a>
-					</li>
-
-					<li class="item-menu-mobile">
-						<a href="blog.html">Blog</a>
-					</li>
-
-					<li class="item-menu-mobile">
-						<a href="about.html">About</a>
-					</li>
-
-					<li class="item-menu-mobile">
-						<a href="contact.html">Contact</a>
-					</li>
-				</ul>
-			</nav>
-		</div>
 	</header>
+<section>
+<form action="{{route('transaksi.store',$menu)}}" method="post" enctype="multipart/form-data">
+    {{csrf_field()}}
+    <div class="container">
+    <style>
+    h2,h4{
+        color: black;
+    }
+    img{
+        border: 1px solid #ddd;
+    }
+    </style>           
+			   <div class="panel panel-default">
+					<div class="card">
+						<div class="card-body">
+							<div class="row">
+                                <div class="col-3">
+                                    <img src="../storage/{{$menu->gambar}}" alt="Gambar" width="256">
+                                    <br></br>
+                                    
+                                    <h2 class="card-title text-center" name="id_barang" value="{{$menu->id}}"><strong>{{$menu->nbarang}}</strong></h2>
+                                    <h4 class="card-title text-center"><strong>Rp. {{$menu->hbarang}}</strong></h4>
+                                    
+                                </div>
+                                <div class="col">
+                                    <style>
+                                        h5{
+                                            color: black;
+                                        }
+                                    </style>
+                                    <h5 class="card-title"><strong>Deskripsi Produk :</strong></h5>
+                                    <p>{{$menu->deskripsi}}</p>
+                                    <div class="flex-w bo5 of-hidden w-size17"></div>
 
-	<!-- Title Page -->
-	<!-- Content page -->
-	<section>
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-6 col-md-8 col-lg-9 p-b-50">		
-					<!-- Product -->
-					<div class="row">
-						
-						@foreach($menus as $menu)
-						<div class="col-sm-12 col-md-6 col-lg-4 p-b-10">
-							<!-- Block2 -->
-							<div class="card text-center">
-								<div class="card-body">
-									<img src="../storage/{{$menu->gambar}}" alt="IMG-PRODUCT" height="128px">
-
-									<div class="block2-overlay trans-0-4">
-										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-											<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-											<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-										</a>
-
-										<div class="block2-btn-addcart w-size1 trans-0-4">
-											<!-- Button -->
-											<a href="{{route('menu.detail',$menu)}}" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-												Pesan Sekarang
-											</a>
-										</div>
-									</div>
 								</div>
-
-								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-										{{$menu->nbarang}}
-									</a>
-
-									<span class="block2-price m-text6 p-r-5">
-										Rp. {{$menu->hbarang}}
-									</span>
-								</div>
-							</div>
+                                <div class="col">
+                               
+                                    <h5><strong>Jumlah Yang Dipesan</strong></h5>
+									<input name="jbarang" class="size8 m-text18 t-center"  type="number" min=25 value="25">
+                                    <br></br><h5><strong>Waktu Pengambilan</strong></h5>
+                                    <input type="date" id="myDate" name="tanggal_ambil" min="2018-12-12">
+                                    <div class="form-group">
+                                    <br></br>
+                                    <button type="submit"  class="btn btn-outline-success" value="save">Pesan</button>
+                                    
+                                    </div>
+                               
+                                </div>
+                                
+                            </row>
 						</div>
-						@endforeach	
 					</div>
-
-					<!-- Pagination -->
-					
 				</div>
-			</div>
-			<div class="pagination flex-m flex-w p-t-26 pull-right">
-						<a href="#" class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>
-						<a href="#" class="item-pagination flex-c-m trans-0-4">2</a>
-			</div>
-		</div>
-	</section>
+        </div>
+    </div>
+</form>
+</section>
 
 
 	<!-- Footer -->
@@ -451,17 +351,32 @@
 	<div id="dropDownSelect1"></div>
 	<div id="dropDownSelect2"></div>
 
+    <script>
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+    if(dd<10){
+            dd='0'+dd
+        } 
+        if(mm<10){
+            mm='0'+mm
+        } 
 
+    today = yyyy+'-'+mm+'-'+dd;
+    document.getElementById("myDate").min = today;
+    </script>
+ 
 
 <!--===============================================================================================-->
-	<script type="text/javascript" src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="../vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-	<script type="text/javascript" src="vendor/animsition/js/animsition.min.js"></script>
+	<script type="text/javascript" src="../vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
-	<script type="text/javascript" src="vendor/bootstrap/js/popper.js"></script>
-	<script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../vendor/bootstrap/js/popper.js"></script>
+	<script type="text/javascript" src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-	<script type="text/javascript" src="vendor/select2/select2.min.js"></script>
+	<script type="text/javascript" src="../vendor/select2/select2.min.js"></script>
 	<script type="text/javascript">
 		$(".selection-1").select2({
 			minimumResultsForSearch: 20,
@@ -473,13 +388,13 @@
 		});
 	</script>
 <!--===============================================================================================-->
-	<script type="text/javascript" src="vendor/daterangepicker/moment.min.js"></script>
-	<script type="text/javascript" src="vendor/daterangepicker/daterangepicker.js"></script>
+	<script type="text/javascript" src="../vendor/daterangepicker/moment.min.js"></script>
+	<script type="text/javascript" src="../vendor/daterangepicker/daterangepicker.js"></script>
 <!--===============================================================================================-->
-	<script type="text/javascript" src="vendor/slick/slick.min.js"></script>
-	<script type="text/javascript" src="js/slick-custom.js"></script>
+	<script type="text/javascript" src="../vendor/slick/slick.min.js"></script>
+	<script type="text/javascript" src="../js/slick-custom.js"></script>
 <!--===============================================================================================-->
-	<script type="text/javascript" src="vendor/sweetalert/sweetalert.min.js"></script>
+	<script type="text/javascript" src="../vendor/sweetalert/sweetalert.min.js"></script>
 	<!-- <script type="text/javascript">
 		$('.block2-btn-addcart').each(function(){
 			var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
@@ -497,7 +412,7 @@
 	</script> -->
 
 <!--===============================================================================================-->
-	<script type="text/javascript" src="vendor/noui/nouislider.min.js"></script>
+	<script type="text/javascript" src="../vendor/noui/nouislider.min.js"></script>
 	<script type="text/javascript">
 		/*[ No ui ]
 	    ===========================================================*/
@@ -519,7 +434,7 @@
 	    });
 	</script>
 <!--===============================================================================================-->
-	<script src="js/main.js"></script>
+	<script src="../js/main.js"></script>
 
 </body>
 </html>

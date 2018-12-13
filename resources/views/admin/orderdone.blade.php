@@ -221,7 +221,18 @@
         </div>
 
         <br></br>
-
+        <style>
+        table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+        }
+        th, td {
+        text-align: center;
+        padding: 5px;
+        }
+        }
+        </style>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-md-offset-2">
@@ -231,34 +242,37 @@
                                 <th>No.</th>
                                 <th>Nama Menu</th>
                                 <th>Harga Menu</th></tr> -->
-                               
-                                @foreach($menus as $menu)                                
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        {{$menu->nbarang}}
-                                    
-
-                                        <div class="pull-right">
-                    
-                                            <form class="" action="{{ route('menu.destroy',$menu)}}" method="post">
-                                                {{csrf_field()}}
-                                                {{method_field('DELETE')}}
-                                                <a href={{ route('menu.edit',$menu)}} class="btn btn-xs btn-primary">Edit</a>
-
-                                                <button type="submit" class="btn btn-xs btn-danger">Hapus</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class"panel-body">
-                                        <p>Rp. {{$menu->hbarang}}</p>
-                                    </div>
-
-                                </div>
-                                   
+                            <table style="width:100%"> 
+                                <tr>
+                                    <th>ID Transaksi</th>
+                                    <th>Pemesan</th>
+                                    <th>Menu Pesanan</th>
+                                    <th>Jumlah Pesanan</th>
+                                    <th>Status</th>
+                                </tr>
+                            @foreach($transaksis as $transaksi)
+                            @if($transaksi->status == 2)
+                            <tr>
+                                <td>{{$transaksi->id}}</td>
+                                @foreach($users as $user)
+                                    @if($user->id == $transaksi->id_pemesan)
+                                    <td value="{{$user->id}}">{{$user->name}}</td>
+                                    @endif
                                 @endforeach
+                                @foreach($menus as $menu)
+                                    @if($menu->id == $transaksi->id_barang)
+                                    <td value="{{$menu->id}}">{{$menu->nbarang}}</td>
+                                    @endif
+                                @endforeach
+                                <td>{{$transaksi->jbarang}} pcs</td>
+                                <td>Done</td>
+                                
+                               
+                                </tr>
+                            @endif
+							@endforeach
 
-                            
+                            </table> 
                         <!--     -->
                         
                     </div>

@@ -79,16 +79,17 @@
                     <li class="menu-title">UI elements</li><!-- /.menu-title -->
                     
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Tables</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>List Pesanan</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="tables-basic.html">Basic Table</a></li>
-                            <li><i class="fa fa-table"></i><a href="tables-data.html">Data Table</a></li>
+                            <li><i class="fa fa-table"></i><a href="{{route('order.ongoing')}}">Permintaan Pesanan</a></li>
+                            <li><i class="fa fa-table"></i><a href="{{route('order.history')}}">Pesanan Selesai</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Forms</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Manage Toko</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="{{route('admin.toko')}}">Basic Form</a>
+                            <li><i class="menu-icon fa fa-th"></i><a href="{{route('admin.toko')}}">Menu</a>
+                            <li><i class="menu-icon fa fa-th"></i><a href="{{route('menu.create')}}">Tambah Menu</a>
                         </ul>
                     </li>
 
@@ -206,7 +207,7 @@
 
                             <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
 
-                            <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                            <a class="nav-link" href="{{route('admin.logout')}}"><i class="fa fa-power -off"></i>Logout</a>
                         </div>
                     </div>
 

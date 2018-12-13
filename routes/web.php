@@ -16,19 +16,21 @@
 // });
 
 Route::get('/', function () {
-    return view('homepage');
+    return view('homepage')->name('homepage');
 });
 
-Route::get('/toko', function () {
-    return view('toko');
+
+Route::get('/keranjang','TokoController@cart')->name('cart');
+Route::get('/pesan', 'TokoController@show')->name('show');
+
+Route::get('/test', function(){
+    return view('home');
 });
-
-Route::get('/toko', 'TokoController@show')->name('show');
-
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+
 Route::get('/user/logout', 'Auth\LoginController@logoutUser')->name('user.logout');
 
 Route::group(['prefix'=>'admin'], function(){
@@ -43,5 +45,17 @@ Route::group(['prefix'=>'admin'], function(){
     Route::get('/toko','AdminController@toko')->name('admin.toko');
     Route::get('/toko/tambahmenu','AdminController@create')->name('menu.create');
     Route::post('/toko/tambahmenu','AdminController@store')->name('menu.store');
+    Route::get('/toko/editmenu/{id}','AdminController@edit')->name('menu.edit');
+    Route::patch('/toko/editmenu/{id}','AdminController@update')->name('menu.update');
+    Route::delete('toko/delete/{id}','AdminController@destroy')->name('menu.destroy');
+    Route::get('/order','AdminController@order')->name('order.ongoing');
+    Route::patch('/order','AdminController@done')->name('order.done');
+    Route::get('/riwayat','AdminController@orderdone')->name('order.history');
+
 });
 
+Route::get('/detail/{id}','TransaksiController@detail')->name('menu.detail');
+Route::post('/detail/{id}','TransaksiController@store')->name('transaksi.store');
+Route::get('/keranjang','TransaksiController@cart')->name('cart');
+
+Route::post('/','AdminController@message')->name('message');

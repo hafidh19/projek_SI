@@ -19,23 +19,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
-    <link rel="stylesheet" href="../assets/css/cs-skin-elastic.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../../../assets/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="../../../assets/css/style.css">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
-    <style>
-    table {
-    counter-reset: tableCount;     
-    }
-
-    .counterCell:before {              
-        content: counter(tableCount); 
-        counter-increment: tableCount; 
-    }
-    </style>
-    
 
 </head>
 <body>
@@ -90,8 +79,8 @@
         <header id="header" class="header">
             <div class="top-left">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="./"><img src="../images/logofix.png" alt="Logo"></a>
-                    <a class="navbar-brand hidden" href="./"><img src="../images/logo2.png" alt="Logo"></a>
+                    <a class="navbar-brand" href="./"><img src="../../../images/logofix.png" alt="Logo"></a>
+                    <a class="navbar-brand hidden" href="./"><img src="../../../images/logo2.png" alt="Logo"></a>
                     <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                 </div>
             </div>
@@ -136,7 +125,7 @@
                             <div class="dropdown-menu" aria-labelledby="message">
                                 <p class="red">You have 4 Mails</p>
                                 <a class="dropdown-item media" href="#">
-                                    <span class="photo media-left"><img alt="avatar" src="../images/avatar/1.jpg"></span>
+                                    <span class="photo media-left"><img alt="avatar" src="../../../images/avatar/1.jpg"></span>
                                     <div class="message media-body">
                                         <span class="name float-left">Jonathan Smith</span>
                                         <span class="time float-right">Just now</span>
@@ -144,7 +133,7 @@
                                     </div>
                                 </a>
                                 <a class="dropdown-item media" href="#">
-                                    <span class="photo media-left"><img alt="avatar" src="../images/avatar/2.jpg"></span>
+                                    <span class="photo media-left"><img alt="avatar" src="../../../images/avatar/2.jpg"></span>
                                     <div class="message media-body">
                                         <span class="name float-left">Jack Sanders</span>
                                         <span class="time float-right">5 minutes ago</span>
@@ -152,7 +141,7 @@
                                     </div>
                                 </a>
                                 <a class="dropdown-item media" href="#">
-                                    <span class="photo media-left"><img alt="avatar" src="../images/avatar/3.jpg"></span>
+                                    <span class="photo media-left"><img alt="avatar" src="../../../images/avatar/3.jpg"></span>
                                     <div class="message media-body">
                                         <span class="name float-left">Cheryl Wheeler</span>
                                         <span class="time float-right">10 minutes ago</span>
@@ -160,7 +149,7 @@
                                     </div>
                                 </a>
                                 <a class="dropdown-item media" href="#">
-                                    <span class="photo media-left"><img alt="avatar" src="../images/avatar/4.jpg"></span>
+                                    <span class="photo media-left"><img alt="avatar" src="../../../images/avatar/4.jpg"></span>
                                     <div class="message media-body">
                                         <span class="name float-left">Rachel Santos</span>
                                         <span class="time float-right">15 minutes ago</span>
@@ -171,10 +160,9 @@
                         </div>
                     </div>
 
-                    
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="../images/admin.jpg" alt="User Avatar">
+                            <img class="user-avatar rounded-circle" src="../../../images/admin.jpg" alt="User Avatar">
                         </a>
 
                         <div class="user-menu dropdown-menu">
@@ -184,16 +172,14 @@
 
                             <a class="nav-link" href="#"><i class="fa fa-cog"></i>Settings</a>
 
-                            <a class="nav-link" href="{{route('admin.logout')}}"><i class="fa fa-power-off"></i>Logout</a>
+                            <a class="nav-link" href="#"><i class="fa fa-power-off"></i>Logout</a>
                         </div>
                     </div>
                 </div>
             </div>
         </header><!-- /header -->
         <!-- Header-->
-        @include('layouts.alert')
-        <div class="card">
-        <div class="card-header">
+
         <div class="breadcrumbs">
             <div class="breadcrumbs-inner">
                 <div class="row m-0">
@@ -210,7 +196,7 @@
                                 <ol class="breadcrumb text-right">
                                     <li><a href="#">Dashboard</a></li>
                                     <li><a href="#">Manage Toko</a></li>
-                                    <!-- <li class="active">Basic</li> -->
+                                    <li class="active">Tambah Menu</li>
                                 </ol>
                             </div>
                         </div>
@@ -218,55 +204,105 @@
                 </div>
             </div>
         </div>
-        </div>
 
-        <br></br>
+        <div class="content">
+            <div class="animated fadeIn">
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 col-md-offset-2">
+
+                
                         
-                        <!-- <table style="width:100%">
-                            <tr>
-                                <th>No.</th>
-                                <th>Nama Menu</th>
-                                <th>Harga Menu</th></tr> -->
-                               
-                                @foreach($menus as $menu)                                
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        {{$menu->nbarang}}
-                                    
 
-                                        <div class="pull-right">
                     
-                                            <form class="" action="{{ route('menu.destroy',$menu)}}" method="post">
-                                                {{csrf_field()}}
-                                                {{method_field('DELETE')}}
-                                                <a href={{ route('menu.edit',$menu)}} class="btn btn-xs btn-primary">Edit</a>
 
-                                                <button type="submit" class="btn btn-xs btn-danger">Hapus</button>
-                                            </form>
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong>Upload Menu Baru</strong>
+                            </div>
+                            <div class="card-body card-block">
+                            <form class="" action="{{ route('menu.update',$menu) }}" method="post" enctype="multipart/form-data">
+                             {{csrf_field()}}
+                             {{method_field('PATCH')}}
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label class=" form-control-label">Nama Admin</label></div>
+                                        <div class="col-12 col-md-9">
+                                            <select name="admin_id" id="" class="form-control">
+                                                @foreach ($admins as $admin)
+                                                {@if($admin->id == Auth::User()->id)
+                                                    <option value="{{ $admin->id}}">{{$admin->name}}</option>
+                                                @endif}
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
-                                    
-                                    <div class"panel-body">
-                                        <p>Rp. {{$menu->hbarang}}</p>
+                                    <div class="row form-group has-feedback{{ $errors->has('nbarang') ? ' is-invalid' : '' }}">
+                                        <div class="col col-md-3"><label for="">Nama Menu</label></div>
+                                        <div class="col-12 col-md-9"><input type="text" class="form-control" name="nbarang" value="{{ $menu->nbarang }}" required autofocus></div>
+                                        <div class="col-md-6">
+                                            @if ($errors->has('nbarang'))
+                                                <span class="invalid-feedback">
+                                                    <strong>{{ $errors->first('nbarang') }}</strong>
+                                                </span>
+                                            @endif
+                                        </div>
                                     </div>
-
-                                </div>
-                                   
-                                @endforeach
-
+                                    <div class="row form-group has-feedback{{ $errors->has('hbarang') ? ' is-invalid' : '' }}">
+                                    <div class="col col-md-3"><label for="">Harga</label></div>
+                                        <div class="col-12 col-md-9"><input type="number" class="form-control" name="hbarang" value="{{ $menu->hbarang }}" required autofocus></div>
+                                        <div class="col-md-6">
+                                            @if ($errors->has('hbarang'))
+                                                <span class="invalid-feedback">
+                                                    <strong>{{ $errors->first('hbarang') }}</strong>
+                                                </span>
+                                            @endif
+                                        </div>                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Deskripsi</label></div>
+                                        <div class="col-12 col-md-9"><textarea name="deskripsi"  rows="9"  class="form-control">{{$menu->deskripsi}}</textarea></div>
+                                        @if ($errors->has('deskripsi'))
+                                            <span class="invalid-feedback">
+                                                <strong>{{ $errors->first('deskripsi') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                        
+                                    
+                                    
+                                    <!-- <div class="row form-group">
+                                        <div class="col col-md-3"><label for="file-input" class=" form-control-label">Gambar</label></div>
+                                        <div class="col-12 col-md-9"><input type="file" id="file-input" name="file-input" class="form-control-file"></div>
+                                    </div> -->
+                                    <img src="../../../storage/{{$menu->gambar}}" alt="Gambar" height="128">
+                                    <div class="form-group">
+                                    @if(count($errors) > 0)
+                                    <div class="alert alert-danger">
+                                        Upload Gambar Error<br></br>
+                                        <ul>
+                                            @foreach($errors->all() as $error)
+                                            <li>{{$error}}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                    @endif
+                                        <div class="input-field">
+                                            <input type="file" name="gambar" class="validate{{ $errors->has('gambar') ? ' is-invalid' : '' }}"  value="{{ $menu->gambar }}" required autofocus >
+                                            @if ($errors->has('gambar'))
+                                                <span class="invalid-feedback">
+                                                    <strong>{{ $errors->first('gambar') }}</strong>
+                                                </span>
+                                            @endif
+                                        </div>
+                                    </div>
                             
-                        <!--     -->
-                        
-                    </div>
-                </div>
-            </div>
-
-        
-                        
+                                <button type="submit" class="btn btn-success btn-sm">
+                                    <i class="fa fa-dot-circle-o"></i> Submit
+                                </button>
+                                <button type="reset" class="btn btn-danger btn-sm">
+                                    <i class="fa fa-ban"></i> Reset
+                                </button>
+                            
+                        </div>
+                        </div>
                     
 
                     
@@ -305,7 +341,7 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
-<script src="../assets/js/main.js"></script>
+<script src="../../assets/js/main.js"></script>
 
 
 </body>

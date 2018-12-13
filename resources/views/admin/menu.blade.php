@@ -36,21 +36,21 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                        <a href="{{route('admin.home')}}"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                     </li>
                     <li class="menu-title">UI elements</li><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Tables</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>List Pesanan</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="tables-basic.html">Basic Table</a></li>
-                            <li><i class="fa fa-table"></i><a href="tables-data.html">Data Table</a></li>
+                            <li><i class="fa fa-table"></i><a href="{{route('order.ongoing')}}">Permintaan Pesanan</a></li>
+                            <li><i class="fa fa-table"></i><a href="{{route('order.history')}}">Pesanan Selesai</a></li>
                         </ul>
                     </li>
-                    <li class="menu-item-has-children active dropdown">
+                    <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Manage Toko</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Menu</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Tambah Menu</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="{{route('admin.toko')}}">Menu</a>
+                            <li><i class="menu-icon fa fa-th"></i><a href="{{route('menu.create')}}">Tambah Menu</a>
                         </ul>
                     </li>
 
@@ -172,7 +172,7 @@
 
                             <a class="nav-link" href="#"><i class="fa fa-cog"></i>Settings</a>
 
-                            <a class="nav-link" href="#"><i class="fa fa-power-off"></i>Logout</a>
+                            <a class="nav-link" href="{{route('admin.logout')}}"><i class="fa fa-power-off"></i>Logout</a>
                         </div>
                     </div>
                 </div>
@@ -247,7 +247,7 @@
                                     </div>
                                     <div class="row form-group has-feedback{{ $errors->has('hbarang') ? ' is-invalid' : '' }}">
                                     <div class="col col-md-3"><label for="">Harga</label></div>
-                                        <div class="col-12 col-md-9"><input type="text" class="form-control" name="hbarang" value="{{ old('hbarang') }}" required autofocus></div>
+                                        <div class="col-12 col-md-9"><input type="number" class="form-control" name="hbarang" value="{{ old('hbarang') }}" required autofocus></div>
                                         <div class="col-md-6">
                                             @if ($errors->has('hbarang'))
                                                 <span class="invalid-feedback">
@@ -268,8 +268,23 @@
                                     </div> -->
                                     
                                     <div class="form-group">
+                                    @if(count($errors) > 0)
+                                    <div class="alert alert-danger">
+                                        Upload Gambar Error<br></br>
+                                        <ul>
+                                            @foreach($errors->all() as $error)
+                                            <li>{{$error}}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                    @endif
                                         <div class="input-field">
                                             <input type="file" name="gambar" class="validate{{ $errors->has('gambar') ? ' is-invalid' : '' }}"  value="{{ old('gambar') }}" required autofocus >
+                                            @if ($errors->has('gambar'))
+                                                <span class="invalid-feedback">
+                                                    <strong>{{ $errors->first('gambar') }}</strong>
+                                                </span>
+                                            @endif
                                         </div>
                                     </div>
                             

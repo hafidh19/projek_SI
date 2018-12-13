@@ -44,7 +44,7 @@
   <section id="topbar" class="d-none d-lg-block">
     <div class="container clearfix">
       <div class="contact-info float-left">
-        <i class="fa fa-envelope-o"></i> <a href="mailto:tebuwacana@gmail.com">tebuwacana@gmail.com</a>
+        <i class="fa fa-envelope-o"></i> <a href="mailto:contact@example.com">contact@example.com</a>
         <i class="fa fa-phone"></i> +1 5589 55488 55
       </div>
       <div class="social-links float-right">
@@ -56,7 +56,6 @@
       </div>
     </div>
   </section>
-
 
   <!--==========================
     Header
@@ -79,7 +78,7 @@
           <li><a href="#team">Founder</a></li>
           <li><a href="#call-to-action">Pesan</a></li>
           <li><a href="#contact">Contact</a></li>
-           @guest
+          @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
@@ -93,20 +92,18 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('user.logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
-                                    <form id="logout-form" action="{{ route('user.logout') }}"  style="display: none;">
+                                     <form id="logout-form" action="{{ route('user.logout') }}"  style="display: none;">
                                         @csrf
                                     </form>
                                 </div>
                             </li>
-                        @endguest
+          @endguest
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -119,7 +116,9 @@
 
     <div class="intro-content">
         <h2>Tebu <font color="50d8af">Wacana</font></h2>
-        <h3><font color="660000"><b>"Wacanakan Hidupmu Semanis Tebu"</b></font></h3>
+      <div>
+      <font color="660000"><b>"Wacanakan Hidupmu Semanis Tebu"</b></font></h3>
+      </div>
     </div>
 
     <div id="intro-carousel" class="owl-carousel" >
@@ -145,12 +144,15 @@
             <h3>Tebu Wacana adalah adalah salah satu produk minuman yang berbahan dasar tebu, dengan pilihan aneka rasa yang bagus kami siap memanjakan dahaga anda, lalu apa saja manfaat dari minuman tebu ini?</h3>
 
             <ul>
+            
               <li><i class="ion-android-checkmark-circle"></i>Meningkatkan kepadatan tulang anda</li>
-              <li><i class="ion-android-checkmark-circle"></i>Kandungan asam amino glikolat mampu merawat kulit anda</li>
-              <li><i class="ion-android-checkmark-circle"></i>Mengendalikan tensi sehingga dapat mengurangi resiko serangan jantung dan stroke</li>
-              <li><i class="ion-android-checkmark-circle"></i>Air tebu juga baik dalam menurunkan kolesterol lho....hehe</li>
-              <li><i class="ion-android-checkmark-circle"></i>Menjaga kesehatan ginjal serta menambah energi tubuh</li>
+                <li><i class="ion-android-checkmark-circle"></i>Kandungan asam amino glikolat mampu merawat kulit anda</li>
+                <li><i class="ion-android-checkmark-circle"></i>Mengendalikan tensi sehingga dapat mengurangi resiko serangan jantung dan stroke</li>
+                <li><i class="ion-android-checkmark-circle"></i>Air tebu juga baik dalam menurunkan kolesterol lho....hehe</li>
+                <li><i class="ion-android-checkmark-circle"></i>Menjaga kesehatan ginjal serta menambah energi tubuh</li>
+            
             </ul>
+              
              <h3>Wah banyak ya manfaat minuman TebuWacana, Yuk beli sekarang juga</h3>
 
           </div>
@@ -166,7 +168,7 @@
       <div class="container">
         <div class="section-header">
           <h2>Menu-menu Pilihan</h2>
-            <p><center>Kami menyediakan minuman tebu dengan aneka cita rasa yang khas, cita rasa ini kami persembahkan untuk memanjakan lidah anda</center></p>
+          <p><center>Kami menyediakan minuman tebu dengan aneka cita rasa yang khas, cita rasa ini kami persembahkan untuk memanjakan lidah anda</center></p>
         </div>
 
         <div class="row">
@@ -335,7 +337,7 @@
       <div class="container">
         <div class="section-header">
           <h2>Testimoni</h2>
-            <p><center>Pelanggan kami sangat menyukai minuman sehat serta menyegarkan ini, tunggu apa lagi, yuk cobakeun sensasi meminum TebuWacana yang akan membuat anda ketagihan lagi dan lagi</center></p>
+          <p><center>Pelanggan kami sangat menyukai minuman sehat serta menyegarkan ini, tunggu apa lagi, yuk cobakeun sensasi meminum TebuWacana yang akan membuat anda ketagihan lagi dan lagi</center></p>
         </div>
         <div class="owl-carousel testimonials-carousel">
 
@@ -406,11 +408,11 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-9 text-center text-lg-left">
-            <h3 class="cta-title">Toko</h3>
+            <h3 class="cta-title">Pesan</h3>
             <p class="cta-text"> Kamu ingin pesan dalam jumlah banyak? atau untuk acara tertentu? kami senang memanjakan dahaga anda, mari bekerja sama dengan kami , Wacanakan Hidupmu Semanis Tebu</p>
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="toko">Pesan Disini</a>
+            <a class="cta-btn align-middle" href="{{route('show')}}">Pesan Disini</a>
           </div>
         </div>
 
@@ -420,30 +422,26 @@
     <!--==========================
       Our Team Section
     ============================-->
-    <section id="team" class="wow fadeInUp center">
-      <div class="container center">
+    <section id="team" class="wow fadeInUp">
+      <div class="container">
         <div class="section-header">
           <h2>Founder</h2>
         </div>
         <div class="row">
-          <style align:center></style>
-          <div class="col-lg-6 col-md-8"><center>
+          <div class="col-lg-5">
             <div class="member">
               <div class="pic"><img src="img/ownoer.jpg" alt=""></div>
               <div class="details">
                 <h4>Fikri & Syafiq</h4>
-                <span>Chief Executive Officer Tebu Wacana</span>
+                <span>Chief Executive Officer TebuWacana</span>
                 <div class="social">
                   <a href="https://www.instagram.com/trisyaputrafikri/" class="instagram"><i class="fa fa-instagram"></i>|</a>
                   <a href="https://www.instagram.com/syafiqhaha_/" class="instagram"><i class="fa fa-instagram"></i></a>
-               
-                 
                 </div>
               </div>
             </div>
           </div>
-        </center>
-
+        </div>  
       </div>
     </section><!-- #team -->
 
@@ -471,7 +469,7 @@
             <div class="contact-phone">
               <i class="ion-ios-telephone-outline"></i>
               <h3>Phone Number</h3>
-              <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
+              <p><a href="tel:+155895548855">Belum Tersedia</a></p>
             </div>
           </div>
 
@@ -480,7 +478,6 @@
               <i class="ion-ios-email-outline"></i>
               <h3>Email</h3>
               <p><a href="mailto:info@example.com">tebuwacana@gmail.com</a></p>
-            </div>
           </div>
 
         </div>
@@ -492,7 +489,8 @@
         <div class="form">
           <div id="sendmessage">Your message has been sent. Thank you!</div>
           <div id="errormessage"></div>
-          <form action="" method="post" role="form" class="contactForm">
+          <form action="{{ route('message') }}" method="post" role="form" class="contactForm">
+          {{csrf_field()}}
             <div class="form-row">
               <div class="form-group col-md-6">
                 <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
